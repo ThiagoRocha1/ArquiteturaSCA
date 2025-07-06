@@ -1,15 +1,15 @@
 from actuators.base import Actuator
 
 class WaterValve(Actuator):
-    def __init__(self):
-        self.state = "fechada"
+    def __init__(self) -> None:
+        self._state: str = "fechada"
 
-    def act(self, command):
-        if command == "abrir" and self.state != "aberta":
+    def act(self, command: str) -> None:
+        if command == "abrir" and self._state != "aberta":
             print("💧 Abrindo válvula...")
-            self.state = "aberta"
-        elif command == "fechar" and self.state != "fechada":
+            self._state = "aberta"
+        elif command == "fechar" and self._state != "fechada":
             print("🚫 Fechando válvula...")
-            self.state = "fechada"
+            self._state = "fechada"
         else:
             print("⏸️  Mantendo o estado da válvula.")
