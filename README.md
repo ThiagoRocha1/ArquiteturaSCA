@@ -43,3 +43,4 @@ irrigacao_automatica/
 
 Diagrama simplificado:
 ![SCA_UML_DIAGRAM](https://github.com/user-attachments/assets/a59d25f9-2927-480e-8e02-a121bc0e7a69)
+Referência: https://www.mdpi.com/2073-431X/12/5/93
