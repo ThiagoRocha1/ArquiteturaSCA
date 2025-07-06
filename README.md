@@ -1,22 +1,42 @@
-# Projeto: Ar-Condicionado Inteligente (Arquitetura Sensor–Controller–Actuator)
+# 🌿 Projeto IoT: Irrigação Automática
 
-Este projeto simula, em Python orientado a objetos, o funcionamento de um sistema de **ar-condicionado inteligente** baseado na arquitetura **Sensor–Controller–Actuator (SCA)**, utilizando um modelo inspirado no **diagrama UML** enviado.
+Este projeto simula um sistema de irrigação automática baseado na arquitetura **Sensor–Controller–Actuator (SCA)**, usando **Python orientado a objetos**. A estrutura é modular e escalável, permitindo a adição de múltiplos sensores, atuadores e controladores especializados.
 
-## Funcionamento
+---
 
-- Um **Sensor de Temperatura** simula a leitura do ambiente.
-- Um **Controlador** toma decisões com base na temperatura lida.
-- Um **Atuador (Ar-Condicionado)** executa as ações: ligar, desligar ou manter.
+## 🔧 Funcionamento
 
-## Relacionamentos UML
+1. Um **Sensor de Umidade do Solo** simula leituras de umidade (valores aleatórios entre 10% e 80%).
+2. Um **Controlador de Irrigação** verifica se a umidade está abaixo do limite.
+3. Um **Atuador (Válvula de Água)** abre ou fecha conforme o comando.
 
-O projeto segue a estrutura:
+---
+
+## 🧱 Estrutura do Projeto
+irrigacao_automatica/
+├── main.py # Ponto de entrada do sistema
+├── iot_thing.py # Orquestrador do ciclo Sensor-Controller-Actuator
+
+├── sensors/
+│ ├── init.py
+│ ├── base.py # Classe abstrata Sensor
+│ └── soil_moisture.py # Sensor de umidade do solo
+
+├── actuators/
+│ ├── init.py
+│ ├── base.py # Classe abstrata Actuator
+│ └── water_valve.py # Atuador para irrigação
+
+├── controllers/
+│ ├── init.py
+│ ├── base.py # Classe abstrata Controller
+│ └── irrigacao_controller.py # Controlador de lógica de irrigação
+
+## 🔄 Arquitetura UML (SCA)
 
 - `IoTThing` contém um `Controller`.
-- `Controller` possui referências a múltiplos `Sensor`(es) e `Actuator`(es).
-- `Sensor` é uma classe base abstrata, estendida por `TemperatureSensor`.
-- `Actuator` é uma classe base abstrata, estendida por `AirConditioner`.
+- `Controller` possui uma lista de `Sensor`(es) e `Actuator`(es).
+- `Sensor` e `Actuator` são classes base abstratas herdadas por sensores/atuadores concretos.
 
-Diagrama UML:
-
+Diagrama simplificado:
 ![SCA_UML_DIAGRAM](https://github.com/user-attachments/assets/a59d25f9-2927-480e-8e02-a121bc0e7a69)
