@@ -1,19 +1,14 @@
-from sensor import TemperatureSensor
-from actuator import AirConditioner
-from controller import Controller
+from sensors.soil_moisture import SoilMoistureSensor
+from actuators.water_valve import WaterValve
+from controllers.irrigacao_controller import IrrigationController
 from iot_thing import IoTThing
 
 def main():
-    # Instâncias
-    sensor = TemperatureSensor()
-    actuator = AirConditioner()
-
-    # Controller recebe lista de sensores e atuadores
-    controller = Controller(sensors=[sensor], actuators=[actuator])
-
-    # IoTThing encapsula o controller e executa o ciclo
-    device = IoTThing(controller)
-    device.run()
+    sensor = SoilMoistureSensor()
+    actuator = WaterValve()
+    controller = IrrigationController([sensor], [actuator])
+    system = IoTThing(controller)
+    system.run()
 
 if __name__ == "__main__":
     main()
