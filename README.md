@@ -13,6 +13,8 @@ Este projeto simula um sistema de irrigação automática baseado na arquitetura
 ---
 
 ## 🧱 Estrutura do Projeto
+
+```
 irrigacao_automatica/
 ├── main.py                      # Ponto de entrada do sistema
 ├── iot_thing.py                 # Orquestrador do ciclo Sensor–Controller–Actuator
@@ -31,7 +33,7 @@ irrigacao_automatica/
 │   ├── __init__.py
 │   ├── base.py                  # Classe abstrata Controller
 │   └── irrigacao_controller.py # Controlador da lógica de irrigação
-
+```
 
 ## 🔄 Arquitetura UML (SCA)
 
